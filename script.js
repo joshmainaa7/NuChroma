@@ -34,6 +34,15 @@ document.addEventListener(
   burger.innerHTML = ICON_OPEN;
   nav.appendChild(burger);
 
+  // Inject "Try the app" demo link into desktop nav (before the last CTA)
+  var demoLink = document.createElement("a");
+  demoLink.href = "feed.html";
+  demoLink.textContent = "Try the app";
+  demoLink.className = "nav-cta nav-demo";
+  var lastCta = navLinks.querySelector(".nav-cta:last-of-type");
+  if (lastCta) navLinks.insertBefore(demoLink, lastCta);
+  else navLinks.appendChild(demoLink);
+
   var overlay = document.createElement("div");
   overlay.className = "nav-overlay";
   document.body.appendChild(overlay);
