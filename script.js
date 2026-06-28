@@ -18,37 +18,60 @@ document.addEventListener(
   { passive: true }
 );
 
-// Mobile hamburger menu
+// Mobile hamburger menu — drawer lives on <body> to escape nav's backdrop-filter
 (function () {
-  const nav = document.querySelector("header.nav");
-  const navLinks = nav && nav.querySelector(".nav-links");
+  var nav = document.querySelector("header.nav");
+  var navLinks = nav && nav.querySelector(".nav-links");
   if (!nav || !navLinks) return;
 
-  const burger = document.createElement("button");
+  var ICON_OPEN = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+  var ICON_CLOSE = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+  var ICON_THEME = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+
+  var burger = document.createElement("button");
   burger.className = "nav-hamburger";
   burger.setAttribute("aria-label", "Menu");
-  burger.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+  burger.innerHTML = ICON_OPEN;
   nav.appendChild(burger);
 
   var overlay = document.createElement("div");
   overlay.className = "nav-overlay";
   document.body.appendChild(overlay);
 
+  var drawer = document.createElement("div");
+  drawer.className = "mobile-drawer";
+
+  navLinks.querySelectorAll("a").forEach(function (a) {
+    drawer.appendChild(a.cloneNode(true));
+  });
+
+  var themeBtn = document.createElement("button");
+  themeBtn.className = "drawer-theme-btn";
+  themeBtn.innerHTML = ICON_THEME + " Toggle theme";
+  themeBtn.addEventListener("click", function () {
+    var root = document.documentElement;
+    var isLight = root.getAttribute("data-theme") === "light";
+    var next = isLight ? "dark" : "light";
+    if (next === "dark") root.removeAttribute("data-theme");
+    else root.setAttribute("data-theme", "light");
+    localStorage.setItem("nuchroma-theme", next);
+  });
+  drawer.appendChild(themeBtn);
+
+  document.body.appendChild(drawer);
+
   function toggle() {
-    var isOpen = navLinks.classList.toggle("open");
+    var isOpen = drawer.classList.toggle("open");
     overlay.classList.toggle("open", isOpen);
     document.body.style.overflow = isOpen ? "hidden" : "";
-    burger.innerHTML = isOpen
-      ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'
-      : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+    burger.innerHTML = isOpen ? ICON_CLOSE : ICON_OPEN;
   }
 
   burger.addEventListener("click", toggle);
   overlay.addEventListener("click", toggle);
-
-  navLinks.querySelectorAll("a").forEach(function (a) {
+  drawer.querySelectorAll("a").forEach(function (a) {
     a.addEventListener("click", function () {
-      if (navLinks.classList.contains("open")) toggle();
+      if (drawer.classList.contains("open")) toggle();
     });
   });
 })();

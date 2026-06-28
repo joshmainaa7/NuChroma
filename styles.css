@@ -165,7 +165,7 @@ button { font: inherit; cursor: pointer; border: 0; }
 [data-theme="light"] .theme-toggle .icon-sun { display: block; }
 [data-theme="light"] .theme-toggle .icon-moon { display: none; }
 
-/* Hamburger button — injected by script.js on mobile */
+/* Hamburger button — injected by script.js, hidden on desktop */
 .nav-hamburger {
   display: none;
   width: 36px; height: 36px;
@@ -177,79 +177,84 @@ button { font: inherit; cursor: pointer; border: 0; }
   cursor: pointer;
   transition: transform .3s var(--ease), background .3s var(--ease);
   flex-shrink: 0;
-  position: relative;
-  z-index: 52;
 }
 .nav-hamburger:hover { background: rgba(120, 95, 65, 0.1); }
 .nav-hamburger svg { display: block; }
 
+/* Mobile drawer — lives on <body>, outside nav's backdrop-filter */
+.mobile-drawer {
+  position: fixed; top: 0; right: 0;
+  width: min(300px, 82vw); height: 100dvh;
+  background: var(--bg);
+  border-left: 1px solid var(--line);
+  z-index: 200;
+  transform: translateX(100%);
+  transition: transform .35s var(--ease);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  padding-top: 72px;
+  overflow-y: auto;
+}
+.mobile-drawer.open { transform: translateX(0); }
+.mobile-drawer a {
+  display: block;
+  padding: 14px 0;
+  font-family: var(--sans);
+  font-size: 16px;
+  color: var(--ink-dim);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  transition: color .2s;
+}
+.mobile-drawer a:hover { color: var(--ink); }
+.mobile-drawer a::after { display: none !important; }
+.mobile-drawer .nav-cta {
+  margin-top: 12px;
+  text-align: center;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--nav-cta-border);
+  color: var(--nav-ink);
+}
+.mobile-drawer .nav-signup {
+  margin-top: 8px;
+  background: linear-gradient(120deg, var(--c1), var(--c5));
+  border-color: transparent;
+  color: #fff;
+  font-weight: 600;
+}
+.mobile-drawer .drawer-theme-btn {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 0;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  font-family: var(--sans);
+  font-size: 16px;
+  color: var(--ink-dim);
+  cursor: pointer;
+  width: 100%;
+}
+.mobile-drawer .drawer-theme-btn:hover { color: var(--ink); }
+.mobile-drawer .drawer-theme-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+.nav-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 199;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s var(--ease);
+}
+.nav-overlay.open { opacity: 1; pointer-events: auto; }
+
+@media (min-width: 721px) {
+  .mobile-drawer, .nav-overlay { display: none !important; }
+}
 @media (max-width: 720px) {
   .nav-hamburger { display: inline-flex; }
-
-  .nav-links {
-    position: fixed; top: 0; right: 0;
-    width: min(320px, 85vw); height: 100dvh;
-    flex-direction: column; align-items: stretch;
-    gap: 0;
-    padding: 80px 24px 32px;
-    background: var(--bg);
-    border-left: 1px solid var(--line);
-    transform: translateX(100%);
-    transition: transform .35s var(--ease);
-    z-index: 51;
-    overflow-y: auto;
-  }
-  .nav-links.open { transform: translateX(0); }
-
-  .nav-links a, .nav-links .theme-toggle {
-    display: flex !important;
-    padding: 14px 0;
-    font-size: 16px;
-    color: var(--ink-dim);
-    border-bottom: 1px solid var(--line);
-    transition: color .2s;
-  }
-  .nav-links a:hover { color: var(--ink); }
-
-  .nav-links a:not(.nav-cta)::after { display: none; }
-
-  .nav-links .theme-toggle {
-    width: auto; height: auto;
-    border: none; border-radius: 0;
-    padding: 14px 0;
-    justify-content: flex-start;
-    gap: 10px;
-  }
-  .nav-links .theme-toggle::after {
-    content: "Toggle theme";
-    font-size: 16px;
-    color: var(--ink-dim);
-  }
-
-  .nav-links .nav-cta {
-    margin-top: 8px;
-    text-align: center;
-    justify-content: center;
-    border-bottom: none;
-    border: 1px solid var(--nav-cta-border);
-  }
-  .nav-links .nav-signup {
-    margin-top: 16px;
-    border-color: transparent;
-  }
-
-  .nav-overlay {
-    position: fixed; inset: 0;
-    background: rgba(0,0,0,.5);
-    z-index: 50;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .35s var(--ease);
-  }
-  .nav-overlay.open {
-    opacity: 1;
-    pointer-events: auto;
-  }
+  .nav-links { display: none !important; }
 }
 
 /* ---------- Hero ---------- */
