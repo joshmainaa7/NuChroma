@@ -1,0 +1,227 @@
+/* ---------- Signup / Choose path page ---------- */
+
+.signup-page {
+  position: relative;
+  min-height: calc(100vh - 80px);
+  padding: clamp(60px, 10vw, 120px) clamp(20px, 5vw, 56px) clamp(60px, 8vw, 100px);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Background orbs */
+.signup-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+.orb-a {
+  width: 480px; height: 480px;
+  left: -160px; top: -80px;
+  background: var(--c5);
+  animation: drift 16s ease-in-out infinite alternate;
+}
+.orb-b {
+  width: 400px; height: 400px;
+  right: -120px; bottom: -60px;
+  background: var(--c1);
+  animation: drift 18s ease-in-out infinite alternate-reverse;
+}
+
+/* Inner wrapper */
+.signup-inner {
+  position: relative; z-index: 2;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Header */
+.signup-header {
+  text-align: center;
+  margin-bottom: clamp(40px, 6vw, 64px);
+}
+
+.signup-title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(38px, 6vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 18px 0 16px;
+}
+
+.signup-sub {
+  font-size: clamp(15px, 1.4vw, 18px);
+  color: var(--ink-dim);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* Two-card grid */
+.path-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 22px;
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+
+/* Path cards */
+.path-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 40px 36px 36px;
+  border-radius: 24px;
+  background: var(--surface-card);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--ink);
+  transition:
+    transform 0.5s var(--ease),
+    border-color 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
+  cursor: pointer;
+}
+.path-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 32px 64px -20px rgba(0, 0, 0, 0.4);
+}
+[data-theme="light"] .path-card:hover {
+  box-shadow: 0 32px 64px -20px rgba(0, 0, 0, 0.12);
+  border-color: rgba(80, 60, 40, 0.3);
+}
+
+/* Glow layers */
+.path-glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+  pointer-events: none;
+}
+.path-glow--creative {
+  background: radial-gradient(ellipse 80% 60% at 30% 20%, rgba(255, 91, 138, 0.22), transparent 65%);
+}
+.path-glow--agency {
+  background: radial-gradient(ellipse 80% 60% at 70% 20%, rgba(106, 166, 255, 0.22), transparent 65%);
+}
+.path-card:hover .path-glow { opacity: 1; }
+
+/* Icon */
+.path-icon {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-dim);
+  margin-bottom: 22px;
+  transition: color 0.3s var(--ease), background 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.path-card--agency .path-icon { color: var(--c4); }
+.path-card:not(.path-card--agency) .path-icon { color: var(--c1); }
+
+/* Badge */
+.path-badge {
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  margin-bottom: 10px;
+}
+
+/* Title */
+.path-title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+}
+
+/* Description */
+.path-desc {
+  color: var(--ink-dim);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 22px;
+}
+
+/* Perk list */
+.path-perks {
+  list-style: none;
+  margin: 0 0 30px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  flex: 1;
+}
+.path-perks li {
+  font-size: 13.5px;
+  color: var(--ink-dim);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.path-perks li::before {
+  content: "";
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--c1);
+}
+.path-card--agency .path-perks li::before {
+  background: var(--c4);
+}
+
+/* CTA row at bottom */
+.path-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 14.5px;
+  color: var(--c1);
+  transition: gap 0.3s var(--ease);
+}
+.path-card--agency .path-cta { color: var(--c4); }
+.path-card:hover .path-cta { gap: 10px; }
+
+.path-arrow {
+  transition: transform 0.3s var(--ease);
+}
+.path-card:hover .path-arrow { transform: translateX(3px); }
+
+/* Divider stripe on agency card */
+.path-card--agency {
+  --c-accent: var(--c4);
+}
+
+/* Footer note */
+.signup-footer-note {
+  text-align: center;
+  font-size: 14px;
+  color: var(--ink-dim);
+}
+
+.inline-link {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.25s var(--ease);
+}
+.inline-link:hover { color: var(--c4); }
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .path-card { padding: 30px 24px 28px; }
+  .signup-title { font-size: 36px; }
+}

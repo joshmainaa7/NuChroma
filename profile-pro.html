@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eva Njeri — NuChroma (Pro)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="app.css" />
+  <link rel="stylesheet" href="profile.css" />
+  <script>
+    (function () {
+      const saved = localStorage.getItem("nuchroma-theme");
+      if (saved) document.documentElement.setAttribute("data-theme", saved);
+    })();
+  </script>
+</head>
+<body class="is-pro">
+  <div class="grain"></div>
+
+  <div class="app">
+    <aside class="sidebar">
+      <a href="index.html" class="sb-brand"><span class="brand-dot"></span> NuChroma</a>
+      <nav class="sb-nav">
+        <a href="feed.html" class="sb-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg> Feed</a>
+        <a href="discover.html" class="sb-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg> Discover</a>
+        <a href="messages.html" class="sb-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"/></svg> Messages <span class="badge-count">2</span></a>
+        <a href="contracts.html" class="sb-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg> Contracts</a>
+        <a href="profile-pro.html" class="sb-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg> Profile</a>
+      </nav>
+      <div class="sb-foot">
+        <div class="sb-user">
+          <span class="av av-md" style="background:linear-gradient(135deg,var(--c1),var(--c5))">EN</span>
+          <div class="sb-user-info">
+            <div class="sb-user-name">Eva Njeri</div>
+            <div class="sb-user-plan"><span class="pro-tag" style="font-size:10px;padding:1px 6px;">Pro</span></div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="topbar">
+        <div class="tb-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input type="text" placeholder="Search creatives, work, or briefs" />
+        </div>
+        <div class="tb-actions">
+          <button class="icon-btn" aria-label="Notifications"><span class="dot-notify"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></button>
+          <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <span class="av-ring"><span class="av tb-avatar" style="background:linear-gradient(135deg,var(--c1),var(--c5))">EN</span></span>
+        </div>
+      </header>
+
+      <main class="app-content">
+        <!-- Compare toggle -->
+        <div class="compare-bar">
+          <span class="compare-tag pro">Pro account</span>
+          <span>You're viewing a <strong>Pro user</strong>.</span>
+          <a href="profile-free.html">See the Free version →</a>
+        </div>
+
+        <!-- Header -->
+        <section class="profile-head">
+          <div class="avatar-wrap">
+            <div class="avatar-ring">
+              <div class="avatar">EN</div>
+            </div>
+          </div>
+          <div class="identity">
+            <div class="name-row">
+              <h1 class="profile-name">Eva Njeri</h1>
+              <span class="verified" title="Verified creative">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span class="pro-badge">✦ Pro</span>
+            </div>
+            <p class="profile-role">Editorial Illustrator</p>
+            <div class="profile-meta">
+              <span>Nairobi, Kenya</span>
+              <span class="dot">•</span>
+              <span>Joined 2026</span>
+              <span class="dot">•</span>
+              <span>Speaks English, Swahili</span>
+            </div>
+            <span class="status-open"><span class="status-dot"></span> Open to work <span class="boost-tag">· boosted</span></span>
+            <p class="profile-bio">
+              I make bold, narrative illustrations for magazines, books, and brands. Ink, risograph, and a lot of colour. Previously with The Continent and Brittle Paper.
+            </p>
+            <div class="profile-actions">
+              <a href="messages.html" class="btn btn-primary btn-sm">Message</a>
+              <a href="#" class="btn btn-ghost btn-sm">Save</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="stats-row">
+          <div class="stat-block">
+            <span class="stat-value">1,240</span>
+            <span class="stat-name">Profile views</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-value">89</span>
+            <span class="stat-name">Saves</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-value">14</span>
+            <span class="stat-name">Projects</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-value">#3</span>
+            <span class="stat-name">Search rank · Nairobi</span>
+          </div>
+        </section>
+
+        <!-- Portfolio -->
+        <section class="profile-section">
+          <h2>Work <span class="section-pill">Featured placement on</span></h2>
+          <div class="work-grid">
+            <article class="work-card">
+              <div class="featured-star"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 18l-6.2 3.2 1.6-7L2 9.5l7.1-.6z"/></svg></div>
+              <div class="work-thumb tw-a"></div><div class="work-meta"><span class="work-title">Harvest, 2026</span><span class="work-saves">♥ 41</span></div>
+            </article>
+            <article class="work-card work-card--video">
+              <div class="work-thumb tw-b">
+                <video class="work-video" muted loop playsinline preload="none" data-src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
+              </div>
+              <div class="work-meta"><span class="work-title">Night Market</span><span class="work-saves">♥ 28</span></div>
+            </article>
+            <article class="work-card"><div class="work-thumb tw-c"></div><div class="work-meta"><span class="work-title">Cover — Issue 12</span><span class="work-saves">♥ 33</span></div></article>
+            <article class="work-card work-card--video">
+              <div class="work-thumb tw-d">
+                <video class="work-video" muted loop playsinline preload="none" data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"></video>
+              </div>
+              <div class="work-meta"><span class="work-title">Folktales series</span><span class="work-saves">♥ 19</span></div>
+            </article>
+            <article class="work-card"><div class="work-thumb tw-e"></div><div class="work-meta"><span class="work-title">Brand mural</span><span class="work-saves">♥ 52</span></div></article>
+            <article class="work-card"><div class="work-thumb tw-f"></div><div class="work-meta"><span class="work-title">Editorial spread</span><span class="work-saves">♥ 24</span></div></article>
+          </div>
+        </section>
+
+        <!-- Insights — UNLOCKED -->
+        <section class="profile-section">
+          <h2>Insights <span class="section-pill" style="background:linear-gradient(120deg,var(--c1),var(--c5));color:#fff;border:0;">Pro unlocked</span></h2>
+          <div class="insight-grid">
+
+            <!-- Who viewed -->
+            <div class="insight-card">
+              <h3>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Who viewed your profile
+              </h3>
+              <div class="viewer-list">
+                <div class="viewer">
+                  <div class="viewer-av" style="background:linear-gradient(135deg,var(--c1),var(--c2));">S</div>
+                  <div class="viewer-info"><div class="viewer-name">Creative Director</div><div class="viewer-role">Safaricom</div></div>
+                  <span class="viewer-time">2h ago</span>
+                </div>
+                <div class="viewer">
+                  <div class="viewer-av" style="background:linear-gradient(135deg,var(--c4),var(--c5));">O</div>
+                  <div class="viewer-info"><div class="viewer-name">Art Director</div><div class="viewer-role">Ogilvy Africa</div></div>
+                  <span class="viewer-time">5h ago</span>
+                </div>
+                <div class="viewer">
+                  <div class="viewer-av" style="background:linear-gradient(135deg,var(--c3),var(--c4));">T</div>
+                  <div class="viewer-info"><div class="viewer-name">Founder</div><div class="viewer-role">Twiga Foods</div></div>
+                  <span class="viewer-time">Yesterday</span>
+                </div>
+                <div class="viewer">
+                  <div class="viewer-av" style="background:linear-gradient(135deg,var(--c5),var(--c1));">M</div>
+                  <div class="viewer-info"><div class="viewer-name">Producer</div><div class="viewer-role">Showmax</div></div>
+                  <span class="viewer-time">2 days ago</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Analytics -->
+            <div class="insight-card">
+              <h3>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+                Profile views — this week
+              </h3>
+              <div class="mini-chart">
+                <div class="bar" style="height:45%"></div>
+                <div class="bar" style="height:62%"></div>
+                <div class="bar" style="height:38%"></div>
+                <div class="bar" style="height:70%"></div>
+                <div class="bar peak" style="height:100%"></div>
+                <div class="bar" style="height:82%"></div>
+                <div class="bar" style="height:58%"></div>
+              </div>
+              <div class="chart-labels">
+                <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+              </div>
+              <p class="rank-sub" style="margin-top:14px;">↑ 34% vs last week · peak on Friday</p>
+            </div>
+
+            <!-- Search ranking -->
+            <div class="insight-card">
+              <h3>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+                You rank in search
+              </h3>
+              <p class="rank-line"><span class="accent">#3</span> for "Editorial Illustration"</p>
+              <p class="rank-sub">in Nairobi · up from #9 last month</p>
+              <p class="rank-line" style="font-size:22px;margin-top:18px;"><span class="accent">#12</span></p>
+              <p class="rank-sub">for "Illustrator" across East Africa</p>
+            </div>
+
+            <!-- Saved by -->
+            <div class="insight-card">
+              <h3>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                Who's saving your work
+              </h3>
+              <div class="breakdown">
+                <div class="bd-row">
+                  <div class="bd-top"><span>Art directors</span><span class="bd-pct">44%</span></div>
+                  <div class="bd-track"><div class="bd-fill f1" style="width:44%"></div></div>
+                </div>
+                <div class="bd-row">
+                  <div class="bd-top"><span>Brands & agencies</span><span class="bd-pct">33%</span></div>
+                  <div class="bd-track"><div class="bd-fill f2" style="width:33%"></div></div>
+                </div>
+                <div class="bd-row">
+                  <div class="bd-top"><span>Fellow creatives</span><span class="bd-pct">23%</span></div>
+                  <div class="bd-track"><div class="bd-fill f3" style="width:23%"></div></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Pro confirmation strip -->
+        <section class="pro-strip reveal">
+          <span>✦ <strong>You're on Pro.</strong> Full colour profile, priority in search, unlimited reach, and the lowest fees as you grow.</span>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="feed.html" class="bn-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>Feed</a>
+    <a href="discover.html" class="bn-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>Discover</a>
+    <a href="messages.html" class="bn-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"/></svg>Messages</a>
+    <a href="contracts.html" class="bn-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Contracts</a>
+    <a href="profile-pro.html" class="bn-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Profile</a>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>

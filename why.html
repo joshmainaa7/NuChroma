@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why NuChroma — Built for the creatives nobody built for</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="why.css" />
+  <script>
+    (function () {
+      const saved = localStorage.getItem("nuchroma-theme");
+      if (saved) document.documentElement.setAttribute("data-theme", saved);
+    })();
+  </script>
+</head>
+<body>
+  <div class="grain"></div>
+
+  <header class="nav">
+    <a href="index.html" class="brand">
+      <span class="brand-dot"></span>
+      <span class="brand-name">NuChroma</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="why.html" class="active">Why NuChroma</a>
+      <a href="login.html">Log in</a>
+      <a href="signup.html" class="nav-cta nav-signup">Sign up</a>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="index.html#join" class="nav-cta">Join the wait-list</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="why-hero">
+      <div class="hero-orb orb-1"></div>
+      <div class="hero-orb orb-2"></div>
+      <div class="why-hero-inner">
+        <span class="eyebrow">Why we're building this</span>
+        <h1 class="why-title">
+          The world has platforms for <em>selling.</em><br />
+          Creatives need one for <span class="gradient-text">thriving.</span>
+        </h1>
+        <p class="why-sub">
+          Existing platforms treat creatives as a sales channel, a casting list, or a gallery nobody visits. NuChroma is the operating system for the people who actually make things.
+        </p>
+      </div>
+    </section>
+
+    <!-- The Problems -->
+    <section class="problems">
+      <header class="section-head reveal">
+        <span class="eyebrow">The landscape today</span>
+        <h2>Good intentions. Missing pieces.</h2>
+      </header>
+
+      <div class="problem-grid">
+        <article class="problem-card reveal">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>Dead portfolios</h3>
+          <p class="problem-who">Behance · Dribbble</p>
+          <p>Static image grids built for 2012. Motion designers, sound artists, interactive creators — their work doesn't fit. Projects get 20 views after hours of layout work. Discovery is broken, and the algorithm rewards popularity, not craft.</p>
+        </article>
+
+        <article class="problem-card reveal">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3>Pay to be seen</h3>
+          <p class="problem-who">Backstage</p>
+          <p>$20/month to access mostly unpaid roles. Rampant spam from fake casting directors. Hostile billing practices. A platform built around auditions, not around artists — and limited almost entirely to the US and UK.</p>
+        </article>
+
+        <article class="problem-card reveal">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+          </div>
+          <h3>You're the product, not the customer</h3>
+          <p class="problem-who">Twiva · Influencer platforms</p>
+          <p>Creators are a distribution channel for brands. No portfolio. No creative identity. Campaign-only earnings that disappear between gigs. 60% of African creators earn under $100/month — the infrastructure, not the talent, is what's missing.</p>
+        </article>
+
+        <article class="problem-card reveal">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4V3"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>No business layer</h3>
+          <p class="problem-who">All of them</p>
+          <p>The moment money enters the conversation, you leave. Briefs happen in email. Contracts happen in Google Docs. Payments happen in PayPal. Nobody owns the creative pipeline from "nice work" to "here's your payment."</p>
+        </article>
+
+        <article class="problem-card reveal">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </div>
+          <h3>Built for San Francisco</h3>
+          <p class="problem-who">All of them</p>
+          <p>Payment rails assume Stripe in USD. Tax templates assume W-9s. The creative scenes in Nairobi, Lagos, Accra, and Johannesburg are exploding — but existing platforms weren't built with them in mind.</p>
+        </article>
+
+        <article class="problem-card reveal">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4V3"/><path d="M22 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Collaboration is invisible</h3>
+          <p class="problem-who">All of them</p>
+          <p>Creative work is a team sport — director, DP, editor, composer. But no platform lets you credit collaborators, pitch as a team, or show the network behind the work. Your best projects look solo even when they weren't.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- The Chroma Difference -->
+    <section class="difference">
+      <header class="section-head reveal">
+        <span class="eyebrow">The NuChroma way</span>
+        <h2>What we're building instead.</h2>
+      </header>
+
+      <div class="diff-list">
+        <article class="diff-item reveal">
+          <div class="diff-num">01</div>
+          <div class="diff-content">
+            <h3>Portfolios that move</h3>
+            <p>Drag-and-drop case studies with video, audio, 3D embeds, and narrative flow. Your profile is a living showcase — not a grid of thumbnails cropped to fit someone else's template.</p>
+          </div>
+          <div class="diff-accent accent-a"></div>
+        </article>
+
+        <article class="diff-item reveal">
+          <div class="diff-num">02</div>
+          <div class="diff-content">
+            <h3>Business built into the conversation</h3>
+            <p>Briefs, rate cards, milestone contracts, and payments — all inside DMs. From "love your work" to "invoice paid" without ever leaving NuChroma. A fair, sliding fee that shrinks as you earn.</p>
+          </div>
+          <div class="diff-accent accent-b"></div>
+        </article>
+
+        <article class="diff-item reveal">
+          <div class="diff-num">03</div>
+          <div class="diff-content">
+            <h3>Signal, not noise</h3>
+            <p>Likes are private. We surface what matters: saves, outreach, repeat views, projects landed. Your reputation is built on real hiring signal, not vanity counts.</p>
+          </div>
+          <div class="diff-accent accent-c"></div>
+        </article>
+
+        <article class="diff-item reveal">
+          <div class="diff-num">04</div>
+          <div class="diff-content">
+            <h3>Discovery that actually works</h3>
+            <p>Search by discipline, tools, location, language, rate range, and availability. Find "a Swahili-speaking motion designer in Nairobi available next month" in seconds, not hours.</p>
+          </div>
+          <div class="diff-accent accent-d"></div>
+        </article>
+
+        <article class="diff-item reveal">
+          <div class="diff-num">05</div>
+          <div class="diff-content">
+            <h3>Team credits, not solo myths</h3>
+            <p>Tag every collaborator. Show the team behind the work. Pitch as a crew. Creative work is collective — NuChroma makes that visible instead of hiding it.</p>
+          </div>
+          <div class="diff-accent accent-e"></div>
+        </article>
+
+        <article class="diff-item reveal">
+          <div class="diff-num">06</div>
+          <div class="diff-content">
+            <h3>Built from Nairobi, not Silicon Valley</h3>
+            <p>M-Pesa, mobile money, multi-currency support from day one. Local contract templates. Local payment rails. Built for the creative markets the rest of the world is sleeping on.</p>
+          </div>
+          <div class="diff-accent accent-f"></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Stats / Market -->
+    <section class="market">
+      <div class="market-inner reveal">
+        <div class="stat-row">
+          <div class="stat">
+            <span class="stat-num">$17.8B</span>
+            <span class="stat-label">Projected African creator economy by 2030</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">60%</span>
+            <span class="stat-label">Of African creators earn under $100/month</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">0</span>
+            <span class="stat-label">Platforms built creator-first for the Global South</span>
+          </div>
+        </div>
+        <p class="market-note">The talent exists. The infrastructure doesn't. <strong>That's what NuChroma is building.</strong></p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="why-cta">
+      <div class="why-cta-inner reveal">
+        <h2>This is the platform we <em>wished</em> existed.</h2>
+        <p>So we're building it. For illustrators, photographers, designers, directors, and every creative who's been underserved by platforms that don't understand the work.</p>
+        <div class="hero-cta">
+          <a href="index.html#join" class="btn btn-primary">Join the wait-list</a>
+          <a href="index.html" class="btn btn-ghost">← Back to home</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">
+      <span class="brand-dot"></span>
+      <span>NuChroma</span>
+    </div>
+    <p>© 2026 NuChroma Labs. Made for the people who make things.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join NuChroma — Choose your path</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="signup.css" />
+  <script>
+    (function () {
+      const saved = localStorage.getItem("nuchroma-theme");
+      if (saved) document.documentElement.setAttribute("data-theme", saved);
+    })();
+  </script>
+</head>
+<body>
+  <div class="grain"></div>
+
+  <header class="nav">
+    <a href="index.html" class="brand">
+      <span class="brand-dot"></span>
+      <span class="brand-name">NuChroma</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="why.html">Why NuChroma</a>
+      <a href="login.html">Log in</a>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="index.html#join" class="nav-cta">Join wait-list</a>
+    </nav>
+  </header>
+
+  <main class="signup-page">
+    <!-- Background orbs -->
+    <div class="signup-orb orb-a"></div>
+    <div class="signup-orb orb-b"></div>
+
+    <div class="signup-inner">
+      <div class="signup-header reveal">
+        <span class="eyebrow">Create your account</span>
+        <h1 class="signup-title">
+          How are you <span class="gradient-text">joining?</span>
+        </h1>
+        <p class="signup-sub">Choose the path that fits you. You can always expand later.</p>
+      </div>
+
+      <div class="path-grid">
+        <!-- Creative path -->
+        <a href="signup-creative.html" class="path-card reveal" data-tilt>
+          <div class="path-glow path-glow--creative"></div>
+          <div class="path-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+              <circle cx="24" cy="16" r="8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="path-badge">For clients &amp; brands</div>
+          <h2 class="path-title">I'm looking for<br/>a creative</h2>
+          <p class="path-desc">Discover and hire illustrators, photographers, directors, and designers. Post briefs, negotiate rates, and collaborate — all in one place.</p>
+          <ul class="path-perks">
+            <li>Browse living portfolios</li>
+            <li>Send briefs directly in DMs</li>
+            <li>Track projects and payments</li>
+          </ul>
+          <span class="path-cta">Get started <span class="path-arrow">→</span></span>
+        </a>
+
+        <!-- Agency path -->
+        <a href="signup-agency.html" class="path-card path-card--agency reveal" data-tilt>
+          <div class="path-glow path-glow--agency"></div>
+          <div class="path-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+              <rect x="6" y="14" width="36" height="26" rx="4" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M16 14V10a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M24 26v4M20 28h8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="path-badge">For studios &amp; agencies</div>
+          <h2 class="path-title">Set up an<br/>agency account</h2>
+          <p class="path-desc">Create a shared workspace for your whole team. Manage talent, run multiple projects, and build your agency's profile on NuChroma.</p>
+          <ul class="path-perks">
+            <li>Multi-seat team workspace</li>
+            <li>Shared project pipelines</li>
+            <li>Agency profile &amp; credits</li>
+          </ul>
+          <span class="path-cta">Set up agency <span class="path-arrow">→</span></span>
+        </a>
+      </div>
+
+      <p class="signup-footer-note reveal">
+        Are you a creative yourself?
+        <a href="index.html#join" class="inline-link">Join the creator wait-list →</a>
+      </p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">
+      <span class="brand-dot"></span>
+      <span>NuChroma</span>
+    </div>
+    <p>© 2026 NuChroma Labs. Made for the people who make things.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Entrance animation for signup page
+    if (window.gsap) {
+      gsap.from(".signup-header", { opacity: 0, y: 30, duration: 0.9, ease: "power3.out", delay: 0.1 });
+      gsap.from(".path-card", {
+        opacity: 0, y: 40, duration: 0.9, ease: "power3.out",
+        stagger: 0.15, delay: 0.35
+      });
+    }
+  </script>
+</body>
+</html>

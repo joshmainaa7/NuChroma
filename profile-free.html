@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joshua Maina — NuChroma (Free account)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="app.css" />
+  <link rel="stylesheet" href="profile.css" />
+  <script>
+    (function () {
+      const saved = localStorage.getItem("nuchroma-theme");
+      if (saved) document.documentElement.setAttribute("data-theme", saved);
+    })();
+  </script>
+</head>
+<body class="is-free">
+  <div class="grain"></div>
+
+  <div class="app">
+    <aside class="sidebar">
+      <a href="index.html" class="sb-brand"><span class="brand-dot"></span> NuChroma</a>
+      <nav class="sb-nav">
+        <a href="feed.html" class="sb-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg> Feed</a>
+        <a href="discover.html" class="sb-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg> Discover</a>
+        <a href="messages.html" class="sb-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"/></svg> Messages <span class="badge-count">2</span></a>
+        <a href="contracts.html" class="sb-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg> Contracts</a>
+        <a href="profile-free.html" class="sb-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg> Profile</a>
+      </nav>
+      <div class="sb-foot">
+        <div class="sb-user">
+          <span class="av av-md" style="background:linear-gradient(135deg,var(--c4),var(--c1))">JM</span>
+          <div class="sb-user-info">
+            <div class="sb-user-name">Joshua Maina</div>
+            <div class="sb-user-plan"><span class="chip-gem" style="width:10px;height:10px"></span> Free · <span id="chipCount">1</span> chip</div>
+          </div>
+        </div>
+        <a href="#" class="sb-upgrade">Upgrade to Pro</a>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="topbar">
+        <div class="tb-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input type="text" placeholder="Search creatives, work, or briefs" />
+        </div>
+        <div class="tb-actions">
+          <span class="chip-balance" id="chipBalance" title="Weekly chips — spend one to unlock a Pro feature for 24h"><span class="chip-gem"></span><span id="chipCountTop">1</span></span>
+          <button class="icon-btn" aria-label="Notifications"><span class="dot-notify"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></button>
+          <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <span class="av tb-avatar" style="background:linear-gradient(135deg,var(--c4),var(--c1))">JM</span>
+        </div>
+      </header>
+
+      <main class="app-content">
+        <!-- Compare toggle -->
+        <div class="compare-bar">
+          <span class="compare-tag free">Free account</span>
+          <span>You're viewing a <strong>normal user</strong>.</span>
+          <a href="profile-pro.html">See the Pro version →</a>
+        </div>
+
+        <!-- Header -->
+        <section class="profile-head">
+          <div class="avatar-wrap">
+            <div class="avatar">JM</div>
+          </div>
+          <div class="identity">
+            <div class="name-row">
+              <h1 class="profile-name">Joshua Maina</h1>
+              <span class="acct-chip free">Free</span>
+            </div>
+            <p class="profile-role">Editorial Illustrator</p>
+            <div class="profile-meta">
+              <span>Nairobi, Kenya</span>
+              <span class="dot">•</span>
+              <span>Joined 2026</span>
+            </div>
+            <span class="status-open"><span class="status-dot"></span> Open to work</span>
+            <p class="profile-bio">
+              I make bold, narrative illustrations for magazines, books, and brands. Ink, risograph, and a lot of colour. Previously with The Continent and Brittle Paper.
+            </p>
+            <div class="profile-actions">
+              <a href="messages.html" class="btn btn-primary btn-sm">Message</a>
+              <a href="#" class="btn btn-ghost btn-sm">Save</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="stats-row">
+          <div class="stat-block">
+            <span class="stat-value">1,240</span>
+            <span class="stat-name">Profile views</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-value">89</span>
+            <span class="stat-name">Saves</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-value">14</span>
+            <span class="stat-name">Projects</span>
+          </div>
+        </section>
+
+        <!-- Portfolio -->
+        <section class="profile-section">
+          <h2>Work <span class="section-pill">Unlimited on free</span></h2>
+          <div class="work-grid">
+            <article class="work-card"><div class="work-thumb tw-a"></div><div class="work-meta"><span class="work-title">Harvest, 2026</span></div></article>
+            <article class="work-card work-card--video">
+              <div class="work-thumb tw-b">
+                <video class="work-video" muted loop playsinline preload="none" data-src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
+              </div>
+              <div class="work-meta"><span class="work-title">Night Market</span></div>
+            </article>
+            <article class="work-card"><div class="work-thumb tw-c"></div><div class="work-meta"><span class="work-title">Cover — Issue 12</span></div></article>
+            <article class="work-card work-card--video">
+              <div class="work-thumb tw-d">
+                <video class="work-video" muted loop playsinline preload="none" data-src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"></video>
+              </div>
+              <div class="work-meta"><span class="work-title">Folktales series</span></div>
+            </article>
+            <article class="work-card"><div class="work-thumb tw-e"></div><div class="work-meta"><span class="work-title">Brand mural</span></div></article>
+            <article class="work-card"><div class="work-thumb tw-f"></div><div class="work-meta"><span class="work-title">Editorial spread</span></div></article>
+          </div>
+        </section>
+
+        <!-- Insights — locked, but free users can spend a chip for a 24h peek -->
+        <section class="profile-section">
+          <h2>Insights <span class="section-pill">Spend a chip to peek</span></h2>
+          <div class="insight-grid">
+
+            <!-- Who viewed -->
+            <div class="insight-card locked" data-feature="viewers">
+              <div class="locked-content">
+                <h3>Who viewed your profile</h3>
+                <div class="faux-row"><div class="faux-av"></div><div class="faux-lines"><div class="faux-line"></div><div class="faux-line short"></div></div></div>
+                <div class="faux-row"><div class="faux-av"></div><div class="faux-lines"><div class="faux-line"></div><div class="faux-line short"></div></div></div>
+                <div class="faux-row"><div class="faux-av"></div><div class="faux-lines"><div class="faux-line"></div><div class="faux-line short"></div></div></div>
+              </div>
+              <div class="lock-overlay">
+                <div class="lock-icon">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <p class="lock-text">See who's been looking at your work</p>
+                <p class="lock-sub">Spend 1 chip for a 24-hour peek</p>
+                <div class="lock-actions">
+                  <button class="chip-unlock"><span class="chip-gem"></span> Unlock with 1 chip</button>
+                  <a href="#" class="lock-pro-link">or go Pro for always-on →</a>
+                </div>
+              </div>
+              <div class="unlocked-content">
+                <span class="unlock-flag"><span class="status-dot"></span> Unlocked · <span class="unlock-timeleft">24h left</span></span>
+                <h3>Who viewed your profile</h3>
+                <div class="viewer-list">
+                  <div class="viewer">
+                    <div class="viewer-av" style="background:linear-gradient(135deg,var(--c1),var(--c2));">S</div>
+                    <div class="viewer-info"><div class="viewer-name">Creative Director</div><div class="viewer-role">Safaricom</div></div>
+                    <span class="viewer-time">2h ago</span>
+                  </div>
+                  <div class="viewer">
+                    <div class="viewer-av" style="background:linear-gradient(135deg,var(--c4),var(--c5));">O</div>
+                    <div class="viewer-info"><div class="viewer-name">Art Director</div><div class="viewer-role">Ogilvy Africa</div></div>
+                    <span class="viewer-time">5h ago</span>
+                  </div>
+                  <div class="viewer">
+                    <div class="viewer-av" style="background:linear-gradient(135deg,var(--c3),var(--c4));">T</div>
+                    <div class="viewer-info"><div class="viewer-name">Founder</div><div class="viewer-role">Twiga Foods</div></div>
+                    <span class="viewer-time">Yesterday</span>
+                  </div>
+                  <div class="viewer">
+                    <div class="viewer-av" style="background:linear-gradient(135deg,var(--c5),var(--c1));">M</div>
+                    <div class="viewer-info"><div class="viewer-name">Producer</div><div class="viewer-role">Showmax</div></div>
+                    <span class="viewer-time">2 days ago</span>
+                  </div>
+                </div>
+                <p class="unlock-upsell">Loved this? Pro shows every viewer, every day. <a href="#">Go Pro →</a></p>
+              </div>
+            </div>
+
+            <!-- Analytics -->
+            <div class="insight-card locked" data-feature="analytics">
+              <div class="locked-content">
+                <h3>Profile analytics</h3>
+                <div class="faux-row"><div class="faux-lines"><div class="faux-line"></div><div class="faux-line short"></div></div></div>
+                <div class="faux-row"><div class="faux-lines"><div class="faux-line"></div><div class="faux-line short"></div></div></div>
+                <div class="faux-row"><div class="faux-lines"><div class="faux-line"></div><div class="faux-line short"></div></div></div>
+              </div>
+              <div class="lock-overlay">
+                <div class="lock-icon">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+                </div>
+                <p class="lock-text">Track your reach & trends</p>
+                <p class="lock-sub">Spend 1 chip for a 24-hour peek</p>
+                <div class="lock-actions">
+                  <button class="chip-unlock"><span class="chip-gem"></span> Unlock with 1 chip</button>
+                  <a href="#" class="lock-pro-link">or go Pro for always-on →</a>
+                </div>
+              </div>
+              <div class="unlocked-content">
+                <span class="unlock-flag"><span class="status-dot"></span> Unlocked · <span class="unlock-timeleft">24h left</span></span>
+                <h3>Profile views — this week</h3>
+                <div class="mini-chart">
+                  <div class="bar" style="height:45%"></div>
+                  <div class="bar" style="height:62%"></div>
+                  <div class="bar" style="height:38%"></div>
+                  <div class="bar" style="height:70%"></div>
+                  <div class="bar peak" style="height:100%"></div>
+                  <div class="bar" style="height:82%"></div>
+                  <div class="bar" style="height:58%"></div>
+                </div>
+                <div class="chart-labels"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+                <p class="rank-sub" style="margin-top:12px;">↑ 34% vs last week · peak on Friday</p>
+                <p class="unlock-upsell">Want always-on analytics? <a href="#">Go Pro →</a></p>
+              </div>
+            </div>
+
+          </div>
+          <p class="demo-note">Prototype demo — <a href="#" id="chipReset">reset chips & unlocks</a></p>
+        </section>
+
+        <!-- Upgrade CTA -->
+        <section class="upgrade-card reveal">
+          <h2>Unlock your <span class="gradient-text">colour.</span></h2>
+          <p>You've got everything you need to get found and get hired. Pro gives you the edge — see who's watching, reach beyond your network, and rise in search.</p>
+          <a href="#" class="btn btn-primary">Upgrade to Pro</a>
+          <p class="price-line"><strong>KES 999</strong> / month · cancel anytime</p>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="feed.html" class="bn-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>Feed</a>
+    <a href="discover.html" class="bn-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>Discover</a>
+    <a href="messages.html" class="bn-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"/></svg>Messages</a>
+    <a href="contracts.html" class="bn-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Contracts</a>
+    <a href="profile-free.html" class="bn-link active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Profile</a>
+  </nav>
+
+  <script src="app.js"></script>
+  <script>
+    (function () {
+      var STORE_CHIPS = "nuchroma-chips";
+      var STORE_UNLOCKS = "nuchroma-unlocks";
+      var START = 1;
+      var UNLOCK_MS = 24 * 60 * 60 * 1000;
+
+      var countEl = document.getElementById("chipCount");
+      var countTopEl = document.getElementById("chipCountTop");
+      var buttons = Array.from(document.querySelectorAll(".chip-unlock"));
+      buttons.forEach(function (b) { b.dataset.orig = b.innerHTML; });
+
+      function getChips() {
+        var v = localStorage.getItem(STORE_CHIPS);
+        if (v === null) { localStorage.setItem(STORE_CHIPS, START); return START; }
+        return parseInt(v, 10) || 0;
+      }
+      function setChips(n) { localStorage.setItem(STORE_CHIPS, n); render(); }
+      function getUnlocks() {
+        try { return JSON.parse(localStorage.getItem(STORE_UNLOCKS)) || {}; }
+        catch (e) { return {}; }
+      }
+      function setUnlocks(o) { localStorage.setItem(STORE_UNLOCKS, JSON.stringify(o)); }
+      function isUnlocked(k) { var u = getUnlocks(); return u[k] && Date.now() < u[k]; }
+      function hoursLeft(k) {
+        var u = getUnlocks();
+        return u[k] ? Math.max(1, Math.ceil((u[k] - Date.now()) / 3600000)) : 0;
+      }
+
+      function reveal(card) {
+        card.classList.add("is-unlocked");
+        var t = card.querySelector(".unlock-timeleft");
+        if (t) t.textContent = hoursLeft(card.dataset.feature) + "h left";
+      }
+
+      function render() {
+        var n = getChips();
+        if (countEl) countEl.textContent = n;
+        if (countTopEl) countTopEl.textContent = n;
+        buttons.forEach(function (btn) {
+          var card = btn.closest(".insight-card");
+          if (isUnlocked(card.dataset.feature)) return;
+          if (n <= 0) { btn.disabled = true; btn.innerHTML = "No chips left · resets Monday"; }
+          else { btn.disabled = false; btn.innerHTML = btn.dataset.orig; }
+        });
+      }
+
+      document.querySelectorAll(".insight-card[data-feature]").forEach(function (card) {
+        if (isUnlocked(card.dataset.feature)) reveal(card);
+      });
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var card = btn.closest(".insight-card");
+          var key = card.dataset.feature;
+          if (isUnlocked(key) || getChips() <= 0) return;
+          setChips(getChips() - 1);
+          var u = getUnlocks();
+          u[key] = Date.now() + UNLOCK_MS;
+          setUnlocks(u);
+          reveal(card);
+        });
+      });
+
+      var resetEl = document.getElementById("chipReset");
+      if (resetEl) {
+        resetEl.addEventListener("click", function (e) {
+          e.preventDefault();
+          localStorage.setItem(STORE_CHIPS, START);
+          localStorage.removeItem(STORE_UNLOCKS);
+          document.querySelectorAll(".insight-card[data-feature]").forEach(function (c) { c.classList.remove("is-unlocked"); });
+          render();
+        });
+      }
+
+      render();
+    })();
+  </script>
+</body>
+</html>
