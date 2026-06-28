@@ -18,6 +18,41 @@ document.addEventListener(
   { passive: true }
 );
 
+// Mobile hamburger menu
+(function () {
+  const nav = document.querySelector("header.nav");
+  const navLinks = nav && nav.querySelector(".nav-links");
+  if (!nav || !navLinks) return;
+
+  const burger = document.createElement("button");
+  burger.className = "nav-hamburger";
+  burger.setAttribute("aria-label", "Menu");
+  burger.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+  nav.appendChild(burger);
+
+  var overlay = document.createElement("div");
+  overlay.className = "nav-overlay";
+  document.body.appendChild(overlay);
+
+  function toggle() {
+    var isOpen = navLinks.classList.toggle("open");
+    overlay.classList.toggle("open", isOpen);
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    burger.innerHTML = isOpen
+      ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'
+      : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+  }
+
+  burger.addEventListener("click", toggle);
+  overlay.addEventListener("click", toggle);
+
+  navLinks.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function () {
+      if (navLinks.classList.contains("open")) toggle();
+    });
+  });
+})();
+
 // Theme toggle
 const themeToggle = document.getElementById("themeToggle");
 if (themeToggle) {

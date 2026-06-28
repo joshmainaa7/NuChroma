@@ -165,8 +165,91 @@ button { font: inherit; cursor: pointer; border: 0; }
 [data-theme="light"] .theme-toggle .icon-sun { display: block; }
 [data-theme="light"] .theme-toggle .icon-moon { display: none; }
 
+/* Hamburger button — injected by script.js on mobile */
+.nav-hamburger {
+  display: none;
+  width: 36px; height: 36px;
+  border-radius: 999px;
+  border: 1px solid var(--nav-cta-border);
+  background: transparent;
+  color: var(--nav-ink);
+  align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: transform .3s var(--ease), background .3s var(--ease);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 52;
+}
+.nav-hamburger:hover { background: rgba(120, 95, 65, 0.1); }
+.nav-hamburger svg { display: block; }
+
 @media (max-width: 720px) {
-  .nav-links a:not(.nav-cta) { display: none; }
+  .nav-hamburger { display: inline-flex; }
+
+  .nav-links {
+    position: fixed; top: 0; right: 0;
+    width: min(320px, 85vw); height: 100dvh;
+    flex-direction: column; align-items: stretch;
+    gap: 0;
+    padding: 80px 24px 32px;
+    background: var(--bg);
+    border-left: 1px solid var(--line);
+    transform: translateX(100%);
+    transition: transform .35s var(--ease);
+    z-index: 51;
+    overflow-y: auto;
+  }
+  .nav-links.open { transform: translateX(0); }
+
+  .nav-links a, .nav-links .theme-toggle {
+    display: flex !important;
+    padding: 14px 0;
+    font-size: 16px;
+    color: var(--ink-dim);
+    border-bottom: 1px solid var(--line);
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  .nav-links a:not(.nav-cta)::after { display: none; }
+
+  .nav-links .theme-toggle {
+    width: auto; height: auto;
+    border: none; border-radius: 0;
+    padding: 14px 0;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .nav-links .theme-toggle::after {
+    content: "Toggle theme";
+    font-size: 16px;
+    color: var(--ink-dim);
+  }
+
+  .nav-links .nav-cta {
+    margin-top: 8px;
+    text-align: center;
+    justify-content: center;
+    border-bottom: none;
+    border: 1px solid var(--nav-cta-border);
+  }
+  .nav-links .nav-signup {
+    margin-top: 16px;
+    border-color: transparent;
+  }
+
+  .nav-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 50;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .35s var(--ease);
+  }
+  .nav-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 /* ---------- Hero ---------- */
