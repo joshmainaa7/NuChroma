@@ -46,7 +46,9 @@
         <p class="signup-sub">Create an account to browse, hire, and collaborate with world-class creatives.</p>
       </div>
 
-      <form class="auth-form" onsubmit="handleSubmit(event)">
+      <form class="auth-form" id="signupForm">
+        <div id="authError" style="display:none;padding:10px 14px;border-radius:10px;background:rgba(255,91,138,.12);border:1px solid rgba(255,91,138,.25);color:#ff5b8a;font-size:13px;margin-bottom:12px;"></div>
+
         <div class="form-row">
           <div class="form-field">
             <label for="fname">First name</label>
@@ -109,16 +111,55 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="script.js"></script>
   <script>
-    function toggleChip(el) {
-      el.classList.toggle("chip--active");
-    }
-    function handleSubmit(e) {
+    function toggleChip(el) { el.classList.toggle("chip--active"); }
+  </script>
+  <script type="module">
+    import { signUp, redirectIfLoggedIn } from "./auth.js";
+
+    redirectIfLoggedIn();
+
+    var form = document.getElementById("signupForm");
+    var btn = document.getElementById("submitBtn");
+    var errBox = document.getElementById("authError");
+
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
-      const btn = document.getElementById("submitBtn");
-      btn.textContent = "Account created ✦";
+      errBox.style.display = "none";
+      btn.textContent = "Creating account…";
       btn.disabled = true;
-      setTimeout(function () { window.location.href = "feed.html"; }, 750);
-    }
+
+      var fname = document.getElementById("fname").value.trim();
+      var lname = document.getElementById("lname").value.trim();
+      var email = document.getElementById("email").value.trim();
+      var company = document.getElementById("company").value.trim();
+      var password = document.getElementById("password").value;
+
+      var chips = form.querySelectorAll(".chip--active");
+      var hiring = Array.from(chips).map(function (c) { return c.textContent; }).join(", ");
+
+      var { error } = await signUp({
+        email: email,
+        password: password,
+        displayName: fname + " " + lname,
+        accountType: "client",
+        extras: {
+          agency_name: company,
+          craft: hiring || null
+        }
+      });
+
+      if (error) {
+        errBox.textContent = error.message;
+        errBox.style.display = "block";
+        btn.textContent = "Create account";
+        btn.disabled = false;
+        return;
+      }
+
+      btn.textContent = "Account created ✦";
+      window.location.href = "feed.html";
+    });
+
     if (window.gsap) {
       gsap.from(".form-header", { opacity: 0, y: 30, duration: 0.9, ease: "power3.out", delay: 0.1 });
       gsap.from(".auth-form", { opacity: 0, y: 40, duration: 0.9, ease: "power3.out", delay: 0.3 });

@@ -46,7 +46,9 @@
         <p class="signup-sub">A shared workspace for your whole team — manage talent, projects, and your agency's brand in one place.</p>
       </div>
 
-      <form class="auth-form" onsubmit="handleSubmit(event)">
+      <form class="auth-form" id="signupForm">
+        <div id="authError" style="display:none;padding:10px 14px;border-radius:10px;background:rgba(255,91,138,.12);border:1px solid rgba(255,91,138,.25);color:#ff5b8a;font-size:13px;margin-bottom:12px;"></div>
+
         <div class="form-field">
           <label for="agency-name">Agency name</label>
           <input id="agency-name" type="text" required placeholder="Stellar Studio" />
@@ -122,20 +124,63 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="script.js"></script>
   <script>
-    function toggleChip(el) {
-      el.classList.toggle("chip--active");
-    }
+    function toggleChip(el) { el.classList.toggle("chip--active"); }
     function selectSize(el) {
-      el.closest(".chip-group").querySelectorAll(".chip").forEach(c => c.classList.remove("chip--active"));
+      el.closest(".chip-group").querySelectorAll(".chip").forEach(function (c) { c.classList.remove("chip--active"); });
       el.classList.add("chip--active");
     }
-    function handleSubmit(e) {
+  </script>
+  <script type="module">
+    import { signUp, redirectIfLoggedIn } from "./auth.js";
+
+    redirectIfLoggedIn();
+
+    var form = document.getElementById("signupForm");
+    var btn = document.getElementById("submitBtn");
+    var errBox = document.getElementById("authError");
+
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
-      const btn = document.getElementById("submitBtn");
-      btn.textContent = "Workspace created ✦";
+      errBox.style.display = "none";
+      btn.textContent = "Creating workspace…";
       btn.disabled = true;
-      setTimeout(function () { window.location.href = "feed.html"; }, 750);
-    }
+
+      var agencyName = document.getElementById("agency-name").value.trim();
+      var fname = document.getElementById("admin-fname").value.trim();
+      var lname = document.getElementById("admin-lname").value.trim();
+      var email = document.getElementById("admin-email").value.trim();
+      var password = document.getElementById("admin-password").value;
+
+      var sizeChip = form.querySelector("[aria-label='Agency size'] .chip--active");
+      var agencySize = sizeChip ? sizeChip.textContent : null;
+
+      var disciplineChips = form.querySelectorAll("[aria-label='Primary discipline'] .chip--active");
+      var craft = Array.from(disciplineChips).map(function (c) { return c.textContent; }).join(", ");
+
+      var { error } = await signUp({
+        email: email,
+        password: password,
+        displayName: fname + " " + lname,
+        accountType: "agency",
+        extras: {
+          agency_name: agencyName,
+          agency_size: agencySize,
+          craft: craft || null
+        }
+      });
+
+      if (error) {
+        errBox.textContent = error.message;
+        errBox.style.display = "block";
+        btn.textContent = "Create agency workspace";
+        btn.disabled = false;
+        return;
+      }
+
+      btn.textContent = "Workspace created ✦";
+      window.location.href = "feed.html";
+    });
+
     if (window.gsap) {
       gsap.from(".form-header", { opacity: 0, y: 30, duration: 0.9, ease: "power3.out", delay: 0.1 });
       gsap.from(".auth-form", { opacity: 0, y: 40, duration: 0.9, ease: "power3.out", delay: 0.3 });

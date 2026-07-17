@@ -47,7 +47,9 @@
         <p class="signup-sub">Pick up where you left off — your portfolio, messages, and contracts are waiting.</p>
       </div>
 
-      <form class="auth-form" onsubmit="handleLogin(event)">
+      <form class="auth-form" id="loginForm">
+        <div id="authError" style="display:none;padding:10px 14px;border-radius:10px;background:rgba(255,91,138,.12);border:1px solid rgba(255,91,138,.25);color:#ff5b8a;font-size:13px;margin-bottom:12px;"></div>
+
         <div class="form-field">
           <label for="email">Email</label>
           <input id="email" type="email" required placeholder="you@studio.com" autocomplete="email" />
@@ -79,14 +81,40 @@
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="script.js"></script>
-  <script>
-    function handleLogin(e) {
+  <script type="module">
+    import { logIn, redirectIfLoggedIn } from "./auth.js";
+
+    redirectIfLoggedIn();
+
+    var form = document.getElementById("loginForm");
+    var btn = document.getElementById("loginBtn");
+    var errBox = document.getElementById("authError");
+
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
-      var btn = document.getElementById("loginBtn");
+      errBox.style.display = "none";
       btn.textContent = "Logging in…";
       btn.disabled = true;
-      setTimeout(function () { window.location.href = "feed.html"; }, 600);
-    }
+
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+
+      var { error } = await logIn({ email, password });
+
+      if (error) {
+        errBox.textContent = error.message === "Invalid login credentials"
+          ? "Wrong email or password. Try again."
+          : error.message;
+        errBox.style.display = "block";
+        btn.textContent = "Log in";
+        btn.disabled = false;
+        return;
+      }
+
+      btn.textContent = "Welcome back ✦";
+      window.location.href = "feed.html";
+    });
+
     if (window.gsap) {
       gsap.from(".form-header", { opacity: 0, y: 30, duration: 0.9, ease: "power3.out", delay: 0.1 });
       gsap.from(".auth-form", { opacity: 0, y: 40, duration: 0.9, ease: "power3.out", delay: 0.3 });
