@@ -1,4 +1,24 @@
-// NuChroma — in-app interactions (no backend; local state only)
+// NuChroma — in-app interactions
+
+// Logout — inject button into sidebar footer
+(function logout() {
+  var foot = document.querySelector(".sb-foot");
+  if (!foot) return;
+
+  var btn = document.createElement("a");
+  btn.href = "#";
+  btn.className = "sb-logout";
+  btn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> Log out';
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    import("./auth.js").then(function (mod) {
+      mod.logOut().then(function () {
+        window.location.href = "index.html";
+      });
+    });
+  });
+  foot.appendChild(btn);
+})();
 
 // Theme toggle + pre-paint already handled in <head>
 (function theme() {

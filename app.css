@@ -72,6 +72,15 @@
 }
 .sb-upgrade:hover { transform: translateY(-1px); }
 
+.sb-logout {
+  display: flex; align-items: center; gap: 6px;
+  margin-top: 10px; padding: 8px 0;
+  font-size: 13px; color: var(--ink-dim);
+  transition: color .2s;
+}
+.sb-logout:hover { color: var(--c1); }
+.sb-logout svg { flex-shrink: 0; }
+
 /* ---------- Top bar ---------- */
 .app-main { display: flex; flex-direction: column; min-width: 0; }
 .topbar {
