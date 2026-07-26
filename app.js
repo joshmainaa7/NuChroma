@@ -1,5 +1,51 @@
 // NuChroma — in-app interactions
 
+// Load logged-in user profile and update sidebar/topbar
+(async function loadUser() {
+  var mod;
+  try { mod = await import("./auth.js"); } catch (e) { return; }
+
+  var session = await mod.getSession();
+  if (!session) { window.location.href = "login.html"; return; }
+
+  var profile = await mod.getProfile();
+  if (!profile) return;
+
+  var initials = (profile.display_name || "")
+    .split(" ").map(function (w) { return w[0]; }).join("").toUpperCase().slice(0, 2) || "?";
+
+  // Update sidebar user info
+  var nameEl = document.querySelector(".sb-user-name");
+  if (nameEl) nameEl.textContent = profile.display_name || "User";
+
+  var planEl = document.querySelector(".sb-user-plan");
+  if (planEl) {
+    if (profile.is_pro) {
+      planEl.innerHTML = '<span class="pro-tag" style="font-size:10px;padding:1px 6px;">Pro</span>';
+    } else {
+      planEl.innerHTML = '<span class="chip-gem" style="width:10px;height:10px"></span> Free · ' + (profile.chip_count || 0) + ' chip' + (profile.chip_count !== 1 ? 's' : '');
+    }
+  }
+
+  // Update sidebar avatar
+  var avEl = document.querySelector(".sb-user .av");
+  if (avEl) avEl.textContent = initials;
+
+  // Update topbar chip balance
+  var chipBal = document.querySelector(".chip-balance");
+  if (chipBal) {
+    chipBal.innerHTML = '<span class="chip-gem"></span>' + (profile.chip_count || 0);
+  }
+
+  // Update topbar avatar
+  var topAv = document.querySelector(".tb-avatar");
+  if (topAv) topAv.textContent = initials;
+
+  // Update comment avatars/names for the logged-in user
+  window._ncUser = profile;
+  window._ncInitials = initials;
+})();
+
 // Logout — inject button into sidebar footer
 (function logout() {
   var foot = document.querySelector(".sb-foot");
@@ -70,9 +116,11 @@ document.querySelectorAll(".comment-form").forEach((form) => {
     const list = form.closest(".post-comments");
     const c = document.createElement("div");
     c.className = "comment";
+    var ci = window._ncInitials || "JM";
+    var cn = (window._ncUser && window._ncUser.display_name) || "You";
     c.innerHTML =
-      '<span class="av av-sm" style="background:linear-gradient(135deg,var(--c4),var(--c1))">JM</span>' +
-      '<div class="comment-body"><b>Joshua Maina</b> ' + escapeHtml(text) + "</div>";
+      '<span class="av av-sm" style="background:linear-gradient(135deg,var(--c4),var(--c1))">' + ci + '</span>' +
+      '<div class="comment-body"><b>' + escapeHtml(cn) + '</b> ' + escapeHtml(text) + "</div>";
     list.insertBefore(c, form);
     input.value = "";
   });

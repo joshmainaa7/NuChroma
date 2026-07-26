@@ -102,9 +102,13 @@
       var { error } = await logIn({ email, password });
 
       if (error) {
-        errBox.textContent = error.message === "Invalid login credentials"
-          ? "Wrong email or password. Try again."
-          : error.message;
+        if (error.message === "Invalid login credentials") {
+          errBox.textContent = "Wrong email or password. Try again.";
+        } else if (error.message === "Email not confirmed") {
+          errBox.textContent = "Please check your inbox and click the confirmation link first.";
+        } else {
+          errBox.textContent = error.message;
+        }
         errBox.style.display = "block";
         btn.textContent = "Log in";
         btn.disabled = false;
