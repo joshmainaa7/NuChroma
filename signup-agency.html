@@ -170,7 +170,7 @@
       });
 
       if (error) {
-        errBox.textContent = error.message;
+        errBox.textContent = error.message && error.message !== "{}" ? error.message : "Something went wrong — please try again.";
         errBox.style.display = "block";
         btn.textContent = "Create agency workspace";
         btn.disabled = false;
