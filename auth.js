@@ -1,37 +1,54 @@
 // NuChroma — Auth helpers
 import { supabase } from "./supabase-client.js";
 
-// Sign up with email + password, then store profile metadata
+// Sign up with email + password
+// Profile extras are stored in user metadata and applied on first login
 export async function signUp({ email, password, displayName, accountType, extras }) {
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
     options: {
-      data: { display_name: displayName }
+      data: {
+        display_name: displayName,
+        account_type: accountType || "creative",
+        ...extras
+      }
     }
   });
   if (error) return { error };
 
-  // Update profile with NuChroma-specific fields
-  if (data.user) {
-    const profile = {
-      id: data.user.id,
-      display_name: displayName,
-      account_type: accountType || "creative",
-      ...extras
-    };
-    await supabase.from("profiles").upsert(profile);
+  // Check for fake signup (email already exists, no identities returned)
+  if (data.user && data.user.identities && data.user.identities.length === 0) {
+    return { error: { message: "An account with this email already exists." } };
   }
 
   return { data };
 }
 
 // Log in with email + password
+// On first login after email confirmation, sync metadata to the profile
 export async function logIn({ email, password }) {
   const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password
   });
+  if (error) return { data, error };
+
+  // Sync user metadata to profile on login
+  if (data.user) {
+    var meta = data.user.user_metadata || {};
+    var updates = {};
+    if (meta.display_name) updates.display_name = meta.display_name;
+    if (meta.account_type) updates.account_type = meta.account_type;
+    if (meta.agency_name) updates.agency_name = meta.agency_name;
+    if (meta.agency_size) updates.agency_size = meta.agency_size;
+    if (meta.craft) updates.craft = meta.craft;
+
+    if (Object.keys(updates).length > 0) {
+      await supabase.from("profiles").update(updates).eq("id", data.user.id);
+    }
+  }
+
   return { data, error };
 }
 
