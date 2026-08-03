@@ -41,6 +41,17 @@
   var topAv = document.querySelector(".tb-avatar");
   if (topAv) topAv.textContent = initials;
 
+  // Update profile page name and avatar
+  var profileName = document.querySelector(".profile-name");
+  if (profileName) profileName.textContent = profile.display_name || "User";
+  var profileAv = document.querySelector(".avatar");
+  if (profileAv && profileAv.closest(".avatar-wrap")) profileAv.textContent = initials;
+
+  // Update contract page user names
+  document.querySelectorAll(".contract-user-name").forEach(function (el) {
+    el.textContent = profile.display_name || "User";
+  });
+
   // Update comment avatars/names for the logged-in user
   window._ncUser = profile;
   window._ncInitials = initials;
