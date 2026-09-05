@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contract · NuChroma</title>
+  <title>Contracts · NuChroma</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -56,147 +56,181 @@
       </header>
 
       <main class="app-content">
-        <div class="contract-layout">
-          <div class="contract-main">
+        <div class="contracts-dash">
 
-            <!-- Header -->
-            <div class="contract-head">
-              <div class="ch-top">
-                <h2 class="ch-title">Vuka Coffee — campaign illustrations</h2>
-                <span class="status-badge active">In progress</span>
-              </div>
-              <div class="ch-parties">
-                <div class="ch-party">
-                  <span class="av av-sm" style="background:linear-gradient(135deg,var(--c2),var(--c5))">BH</span>
-                  <div class="who"><b>Bold House Agency</b><span>Client</span></div>
-                </div>
-                <span class="ch-arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-                <div class="ch-party">
-                  <span class="av av-sm" style="background:linear-gradient(135deg,var(--c4),var(--c1))"></span>
-                  <div class="who"><b class="contract-user-name"></b><span>Creative</span></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Scope -->
-            <div class="contract-card">
-              <h3>Scope of work</h3>
-              <p class="scope-text">Four hero illustrations for the Vuka Coffee launch campaign, optimised for Instagram and X, plus one wide banner for web. Flat colour, hand-drawn style consistent with the samples shared in chat.</p>
-              <p class="scope-text">Two rounds of revisions included per illustration. Final delivery as layered source files and exported PNG/SVG. Usage: paid social and web for 12 months across Vuka Coffee channels.</p>
-            </div>
-
-            <!-- Payment -->
-            <div class="contract-card">
-              <h3>Payment</h3>
-              <div class="pay-summary">
-                <div class="pay-row"><span class="pr-label">Project total</span><span class="pr-val">KES 60,000</span></div>
-                <div class="pay-row"><span class="pr-label">NuChroma fee <span class="fee-note">(8% — drops as you earn more)</span></span><span class="pr-val">− KES 4,800</span></div>
-                <div class="pay-row total"><span class="pr-label">You receive</span><span class="pr-val">KES 55,200</span></div>
-              </div>
-
-              <div class="escrow-box">
-                <span class="escrow-shield"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-                <div class="escrow-info">
-                  <div class="ei-amount"><span id="escrowHeld" data-val="48000">KES 48,000</span></div>
-                  <div class="ei-label">held safely in escrow · <span class="ei-released" id="escrowReleased" data-val="12000">KES 12,000</span> released so far</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Milestones -->
-            <div class="contract-card">
-              <h3>Milestones</h3>
-
-              <div class="milestone done" data-amount="12000">
-                <span class="ms-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-                <div class="ms-info">
-                  <div class="ms-name">Concept &amp; moodboard</div>
-                  <div class="ms-sub">Approved · released 5 days ago</div>
-                </div>
-                <div class="ms-right">
-                  <span class="ms-amount">KES 12,000</span>
-                  <span class="ms-status paid">Paid</span>
-                </div>
-              </div>
-
-              <div class="milestone current" data-amount="24000">
-                <span class="ms-mark">2</span>
-                <div class="ms-info">
-                  <div class="ms-name">First drafts — 4 illustrations</div>
-                  <div class="ms-sub">Submitted by Joshua · awaiting your approval</div>
-                </div>
-                <div class="ms-right">
-                  <span class="ms-amount">KES 24,000</span>
-                  <span class="ms-status held">In escrow</span>
-                  <button class="ms-action">Approve &amp; release</button>
-                </div>
-              </div>
-
-              <div class="milestone" data-amount="24000">
-                <span class="ms-mark">3</span>
-                <div class="ms-info">
-                  <div class="ms-name">Final files &amp; banner</div>
-                  <div class="ms-sub">Due in 2 weeks</div>
-                </div>
-                <div class="ms-right">
-                  <span class="ms-amount">KES 24,000</span>
-                  <span class="ms-status held">In escrow</span>
-                  <button class="ms-action">Approve &amp; release</button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Activity -->
-            <div class="contract-card">
-              <h3>Activity</h3>
-              <div class="timeline">
-                <div class="tl-item">
-                  <div class="tl-text"><b class="contract-user-name"></b> submitted the first drafts for review</div>
-                  <div class="tl-time">2 days ago</div>
-                </div>
-                <div class="tl-item">
-                  <div class="tl-text"><b>Bold House Agency</b> funded the remaining <b>KES 48,000</b> into escrow</div>
-                  <div class="tl-time">2 days ago</div>
-                </div>
-                <div class="tl-item">
-                  <div class="tl-text">You released <b>KES 12,000</b> for “Concept &amp; moodboard”</div>
-                  <div class="tl-time">5 days ago</div>
-                </div>
-                <div class="tl-item muted">
-                  <div class="tl-text">Contract signed by both parties</div>
-                  <div class="tl-time">6 days ago</div>
-                </div>
-                <div class="tl-item muted">
-                  <div class="tl-text">Brief shared from Messages</div>
-                  <div class="tl-time">6 days ago</div>
-                </div>
-              </div>
+          <!-- Dashboard header -->
+          <div class="cd-header">
+            <div>
+              <h1 class="cd-title">Your projects</h1>
+              <p class="cd-sub">Track briefs, contracts, and payments in one place.</p>
             </div>
           </div>
 
-          <!-- Side -->
-          <aside class="contract-side">
-            <div class="side-card">
-              <h3>Your contracts</h3>
-              <a href="contracts.html" class="contract-mini">
-                <div class="cm-title">Vuka Coffee — illustrations</div>
-                <div class="cm-meta"><span><span class="cm-dot amber"></span>In progress</span><span>KES 60,000</span></div>
-              </a>
-              <a href="contracts.html" class="contract-mini">
-                <div class="cm-title">Safaricom — social set</div>
-                <div class="cm-meta"><span><span class="cm-dot grey"></span>Draft</span><span>KES 90,000</span></div>
-              </a>
-              <a href="contracts.html" class="contract-mini">
-                <div class="cm-title">David Mwangi — title cards</div>
-                <div class="cm-meta"><span><span class="cm-dot green"></span>Completed</span><span>KES 35,000</span></div>
-              </a>
+          <!-- Stats row -->
+          <div class="cd-stats">
+            <div class="cd-stat">
+              <div class="cd-stat-val">KES 155,000</div>
+              <div class="cd-stat-label">Total earned</div>
             </div>
+            <div class="cd-stat">
+              <div class="cd-stat-val">KES 48,000</div>
+              <div class="cd-stat-label">In escrow</div>
+            </div>
+            <div class="cd-stat">
+              <div class="cd-stat-val">3</div>
+              <div class="cd-stat-label">Active projects</div>
+            </div>
+            <div class="cd-stat">
+              <div class="cd-stat-val">5</div>
+              <div class="cd-stat-label">Completed</div>
+            </div>
+          </div>
 
-            <div class="side-card help-card">
-              <h3>How escrow works</h3>
-              <b>Funds sit safely in escrow</b> until you both agree a milestone is done. The client can't pull the money back on a whim, and you know you'll be paid before you hand over finals. NuChroma only takes its fee when money is released.
-            </div>
-          </aside>
+          <!-- Filter tabs -->
+          <div class="cd-tabs">
+            <button class="cd-tab active" data-filter="all">All</button>
+            <button class="cd-tab" data-filter="active">Active</button>
+            <button class="cd-tab" data-filter="pending">Pending</button>
+            <button class="cd-tab" data-filter="completed">Completed</button>
+            <button class="cd-tab" data-filter="draft">Drafts</button>
+          </div>
+
+          <!-- Contract list -->
+          <div class="cd-list">
+
+            <!-- Active contract -->
+            <a href="contract-detail.html" class="cd-card" data-status="active">
+              <div class="cd-card-top">
+                <div class="cd-card-info">
+                  <h3 class="cd-card-title">Vuka Coffee — campaign illustrations</h3>
+                  <div class="cd-card-parties">
+                    <span class="av av-xs" style="background:linear-gradient(135deg,var(--c2),var(--c5))">BH</span>
+                    <span class="cd-card-client">Bold House Agency</span>
+                  </div>
+                </div>
+                <span class="status-badge active">In progress</span>
+              </div>
+              <div class="cd-card-bottom">
+                <div class="cd-card-amount">KES 60,000</div>
+                <div class="cd-card-progress">
+                  <div class="cd-bar"><div class="cd-bar-fill" style="width:33%"></div></div>
+                  <span class="cd-bar-label">1 of 3 milestones</span>
+                </div>
+                <div class="cd-card-date">Started 6 days ago</div>
+              </div>
+            </a>
+
+            <!-- Pending signature -->
+            <a href="contract-detail.html" class="cd-card" data-status="pending">
+              <div class="cd-card-top">
+                <div class="cd-card-info">
+                  <h3 class="cd-card-title">Safaricom — social media set</h3>
+                  <div class="cd-card-parties">
+                    <span class="av av-xs" style="background:linear-gradient(135deg,var(--c3),var(--c5))">SF</span>
+                    <span class="cd-card-client">Safaricom PLC</span>
+                  </div>
+                </div>
+                <span class="status-badge pending">Awaiting signature</span>
+              </div>
+              <div class="cd-card-bottom">
+                <div class="cd-card-amount">KES 90,000</div>
+                <div class="cd-card-progress">
+                  <div class="cd-bar"><div class="cd-bar-fill" style="width:0%"></div></div>
+                  <span class="cd-bar-label">Not started</span>
+                </div>
+                <div class="cd-card-date">Brief received 1 day ago</div>
+              </div>
+            </a>
+
+            <!-- Active contract 2 -->
+            <a href="contract-detail.html" class="cd-card" data-status="active">
+              <div class="cd-card-top">
+                <div class="cd-card-info">
+                  <h3 class="cd-card-title">Maisha Magazine — editorial covers</h3>
+                  <div class="cd-card-parties">
+                    <span class="av av-xs" style="background:linear-gradient(135deg,var(--c1),var(--c4))">MM</span>
+                    <span class="cd-card-client">Maisha Media</span>
+                  </div>
+                </div>
+                <span class="status-badge active">In progress</span>
+              </div>
+              <div class="cd-card-bottom">
+                <div class="cd-card-amount">KES 45,000</div>
+                <div class="cd-card-progress">
+                  <div class="cd-bar"><div class="cd-bar-fill" style="width:66%"></div></div>
+                  <span class="cd-bar-label">2 of 3 milestones</span>
+                </div>
+                <div class="cd-card-date">Started 2 weeks ago</div>
+              </div>
+            </a>
+
+            <!-- Completed -->
+            <a href="contract-detail.html" class="cd-card" data-status="completed">
+              <div class="cd-card-top">
+                <div class="cd-card-info">
+                  <h3 class="cd-card-title">David Mwangi — title cards for documentary</h3>
+                  <div class="cd-card-parties">
+                    <span class="av av-xs" style="background:linear-gradient(135deg,var(--c4),var(--c2))">DM</span>
+                    <span class="cd-card-client">David Mwangi</span>
+                  </div>
+                </div>
+                <span class="status-badge completed">Completed</span>
+              </div>
+              <div class="cd-card-bottom">
+                <div class="cd-card-amount">KES 35,000</div>
+                <div class="cd-card-progress">
+                  <div class="cd-bar"><div class="cd-bar-fill full" style="width:100%"></div></div>
+                  <span class="cd-bar-label">All milestones paid</span>
+                </div>
+                <div class="cd-card-date">Completed 3 weeks ago</div>
+              </div>
+            </a>
+
+            <!-- Completed 2 -->
+            <a href="contract-detail.html" class="cd-card" data-status="completed">
+              <div class="cd-card-top">
+                <div class="cd-card-info">
+                  <h3 class="cd-card-title">Kilimani Roasters — brand identity</h3>
+                  <div class="cd-card-parties">
+                    <span class="av av-xs" style="background:linear-gradient(135deg,var(--c5),var(--c3))">KR</span>
+                    <span class="cd-card-client">Kilimani Roasters</span>
+                  </div>
+                </div>
+                <span class="status-badge completed">Completed</span>
+              </div>
+              <div class="cd-card-bottom">
+                <div class="cd-card-amount">KES 25,000</div>
+                <div class="cd-card-progress">
+                  <div class="cd-bar"><div class="cd-bar-fill full" style="width:100%"></div></div>
+                  <span class="cd-bar-label">All milestones paid</span>
+                </div>
+                <div class="cd-card-date">Completed 2 months ago</div>
+              </div>
+            </a>
+
+            <!-- Draft -->
+            <a href="contract-detail.html" class="cd-card" data-status="draft">
+              <div class="cd-card-top">
+                <div class="cd-card-info">
+                  <h3 class="cd-card-title">Nairobi Design Week — event posters</h3>
+                  <div class="cd-card-parties">
+                    <span class="av av-xs" style="background:linear-gradient(135deg,var(--c1),var(--c2))">ND</span>
+                    <span class="cd-card-client">NDW Committee</span>
+                  </div>
+                </div>
+                <span class="status-badge draft">Draft</span>
+              </div>
+              <div class="cd-card-bottom">
+                <div class="cd-card-amount">KES 40,000</div>
+                <div class="cd-card-progress">
+                  <div class="cd-bar"><div class="cd-bar-fill" style="width:0%"></div></div>
+                  <span class="cd-bar-label">Terms not agreed</span>
+                </div>
+                <div class="cd-card-date">Created 4 days ago</div>
+              </div>
+            </a>
+
+          </div>
         </div>
       </main>
     </div>
@@ -211,5 +245,22 @@
   </nav>
 
   <script src="app.js"></script>
+  <script>
+    // Tab filtering
+    document.querySelectorAll(".cd-tab").forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        document.querySelectorAll(".cd-tab").forEach(function (t) { t.classList.remove("active"); });
+        tab.classList.add("active");
+        var filter = tab.dataset.filter;
+        document.querySelectorAll(".cd-card").forEach(function (card) {
+          if (filter === "all" || card.dataset.status === filter) {
+            card.style.display = "";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
